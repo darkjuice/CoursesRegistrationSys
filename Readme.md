@@ -1,7 +1,7 @@
-# Mun Course Tool - bonanyinteam
+#  Course Tool 
 project-bonanyinteam created by GitHub Classroom
 
-Due to unexpected issue, I (Bonan Yin) have to rewrite the whole project to make my features work. Time is quite tight(nearly 10 hours) so that some features may be
+Due to unexpected issue, I have to rewrite the whole project to make my features work. Time is quite tight(nearly 10 hours) so that some features may be
 not fully considered but basiclly functioning at least. Thanks Brandon for the csv files.
 
 
