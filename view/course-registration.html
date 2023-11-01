@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>course registration</title>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <link href="css/table.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+
+<div id="top" style="height: 100px; background: #6e1d1d;text-align: center">
+  <h2 style="color: white">course registration</h2>
+</div>
+<div id="menu"></div>
+
+<br>
+<div style="margin: auto;width: 100%;text-align: center">
+  <form action="/registerCourse" method="post">
+    <input name="crn" placeholder="crn" id="crn-input">
+    <button type="submit">Register for a course</button>
+  </form>
+</div>
+<!--stuCourse-->
+<div>
+  <table>
+    <tr>
+      <th>subject</th>
+      <th>number</th>
+      <th>section</th>
+      <th>days</th>
+      <th>time</th>
+      <th>room build</th>
+      <th>room number</th>
+<!--      <th>operation</th>-->
+    </tr>
+    <% for (let course of stuCourse) { %>
+    <tr>
+      <th>
+        <%= course.subject %>
+      </th>
+      <th>
+        <%= course.number %>
+      </th>
+      <th>
+        <%= course.section %>
+      </th>
+      <th>
+        <%= course.days %>
+      </th>
+      <th>
+        <%= course.starttime + " ---  " + course.endtime %>
+      </th>
+      <th>
+        <%= course.roombuild %>
+      </th>
+      <th>
+        <%= course.roomnumber %>
+      </th>
+    </tr>
+    <% } %>
+  </table>
+</div>
+<br>
+<div class="roll" style="height: 150px;overflow-y: scroll;">
+  <table>
+    <tr>
+      <th>CRN</th>
+      <th>subject</th>
+      <th>number</th>
+      <th>section</th>
+      <th>slot</th>
+      <th>credhr</th>
+      <th>days</th>
+      <th>time</th>
+      <th>method</th>
+      <th>prime_instr</th>
+      <th>type</th>
+      <th>roombuild</th>
+      <th>roomnumber</th>
+    </tr>
+    <% for (let course of allCourse) { %>
+    <tr>
+      <th>
+        <%= course.crn %>
+      </th>
+      <th>
+        <%= course.subject %>
+      </th>
+      <th>
+        <%= course.number %>
+      </th>
+      <th>
+        <%= course.section %>
+      </th>
+      <th>
+        <%= course.slot %>
+      </th>
+      <th>
+        <%= course.credhr %>
+      </th>
+      <th>
+        <%= course.days %>
+      </th>
+      <th>
+        <%= course.starttime + " ---  " + course.endtime %>
+      </th>
+      <th>
+        <%= course.method %>
+      </th>
+      <th>
+        <%= course.prime_instr %>
+      </th>
+      <th>
+        <%= course.type %>
+      </th>
+      <th>
+        <%= course.roombuild %>
+      </th>
+      <th>
+        <%= course.roomnumber %>
+      </th>
+
+    </tr>
+    <% } %>
+
+
+  </table>
+</div>
+</body>
+<!--CRN  subject number section slot  credhr  days time   method  prime_instr type roombuild roomnumber-->
+<script>
+  // let userInfo = {}
+  // async function registerCourse() {
+  //
+  //   await $.ajax({
+  //     url: '/registerCourse',
+  //     type: 'PUT',
+  //     data: {
+  //               firstCRN: $("#crn-input").val()+"",
+  //               userId: userInfo.studentid
+  //     },
+  //     success: function(response){
+  //       console.log(response)
+  //     }
+  //   });
+  // }
+  // $(document).ready(
+  //         async ()=>{
+  //           $('#menu').load('menu.html');
+  //           await $.ajax({
+  //             url: '/profile',
+  //             type: 'GET',
+  //             success: function(response){
+  //               userInfo = response
+  //             }
+  //           });
+  //         }
+  // )
+</script>
+</html>

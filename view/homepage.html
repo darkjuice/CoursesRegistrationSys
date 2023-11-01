@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>homepage</title>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/ejs.min.js"></script>
+    <link href="css/table.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+
+        <div id="top" style="height: 100px; background: #6e1d1d;text-align: center">
+            <h2 style="color: white">homepage</h2>
+        </div>
+        <div id="menu"></div>
+
+        <div  style="height: 100px;text-align: center" >
+            <% if (username) { %>
+            <h2><%= "Welcome," + username %></h2>
+            <% } %>
+        </div>
+        <div>
+            <table class="agenda">
+                <tr>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                    <th>Saturday</th>
+                    <th>Sunday</th>
+                </tr>
+                <% for (let agenda of agendas) { %>
+                <tr>
+                    <% for (let course of agenda) { %>
+                    <th>
+                        <%= course %>
+                    </th>
+                    <% } %>
+                </tr>
+                <% } %>
+            </table>
+        </div>
+</body>
+<script type="text/javascript">
+    $(document).ready(
+        $('#menu').load('menu.html')
+    )
+</script>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>message board</title>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/ejs.min.js"></script>
+  <style>
+    .flex-div{
+      display: flex;
+      justify-content: space-between;
+      border: 1px solid black
+    }
+    .content{
+      height: 150px;
+      border: 1px solid black;
+    }
+    .msg-board{
+      width: 70%;
+      height: 600px;
+      border: 1px solid black;
+      margin: auto;
+      overflow-y: scroll;
+    }
+  </style>
+</head>
+<body>
+  <div id="top" style="height: 100px; background: #6e1d1d;text-align: center">
+    <h2 style="color: white">homepage</h2>
+  </div>
+  <div id="menu"></div>
+  <div  style="height: 100px;text-align: center" >
+    <h2>message board</h2>
+  </div>
+  <form action="/publishInfo" method="post" style="text-align: center">
+    <input name="message" placeholder="Enter the information">
+    <button type="submit">Submit information</button>
+  </form>
+  <br>
+  <div class="msg-board">
+      <% for (let message of messages) { %>
+    <div class="content">
+          <div class="flex-div">
+            <p class="flex-p"><%= message.name %></p>
+            <p class="flex-p"><%= (new Date(message.createdAt)).toLocaleString()   %></p>
+          </div>
+          <div class="message">
+            <p><%= message.message  %></p>
+          </div>
+    </div>
+      <% } %>
+  </div>
+
+
+</body>
+<script>
+  $(document).ready(
+          $('#menu').load('menu.html')
+  )
+</script>
+
+</html>
